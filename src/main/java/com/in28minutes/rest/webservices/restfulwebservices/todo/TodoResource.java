@@ -3,8 +3,11 @@ package com.in28minutes.rest.webservices.restfulwebservices.todo;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:5173")
@@ -19,5 +22,19 @@ public class TodoResource {
     @GetMapping("/users/{username}/todos")
     public List<Todo> retrieve(@PathVariable String username){
       return todoService.findByUsername(username);
+    }
+    @GetMapping("/users/{username}/todos/{id}")
+    public Todo retrieveTodoById(@PathVariable String username,@PathVariable int id){
+      return todoService.findById(id);
+    }
+    @DeleteMapping("/users/{username}/todos/{id}")
+    public void deleteTodoById(@PathVariable String username,@PathVariable int id){
+      todoService.deleteById(id);
+    }
+
+    @PutMapping("/users/{username}/todos/{id}")
+    public Todo updateTodo(@PathVariable String username, @PathVariable int id, @RequestBody Todo todo){
+      todoService.updateTodo(todo);
+      return todo;
     }
 }
