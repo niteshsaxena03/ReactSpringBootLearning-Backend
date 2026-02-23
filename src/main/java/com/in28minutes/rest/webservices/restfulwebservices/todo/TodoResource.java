@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -30,6 +33,14 @@ public class TodoResource {
     @DeleteMapping("/users/{username}/todos/{id}")
     public void deleteTodoById(@PathVariable String username,@PathVariable int id){
       todoService.deleteById(id);
+    }
+
+    @PostMapping("/users/{username}/todos")
+    public ResponseEntity<Todo> createTodo(@PathVariable String username, @RequestBody Todo todo){
+      Todo created = todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), todo.isDone());
+      return ResponseEntity.created(
+        ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(created.getId()).toUri()
+      ).body(created);
     }
 
     @PutMapping("/users/{username}/todos/{id}")
