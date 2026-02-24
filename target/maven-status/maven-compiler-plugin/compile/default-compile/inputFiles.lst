@@ -1,6 +1,7 @@
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/todo/TodoResource.java
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/helloworld/HelloWorldController.java
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/helloworld/HelloWorldBean.java
+/Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/security/SpringSecurityConfiguration.java
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/todo/Todo.java
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/todo/TodoService.java
 /Users/niteshsaxena/Documents/UdemySpringBoot/FullStackSpringReact/01-rest-api-starting-code/src/main/java/com/in28minutes/rest/webservices/restfulwebservices/RestfulWebServicesApplication.java
