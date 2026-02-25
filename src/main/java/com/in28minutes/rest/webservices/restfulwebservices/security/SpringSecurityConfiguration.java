@@ -29,6 +29,7 @@ public class SpringSecurityConfiguration {
         // /authenticate is public; everything else requires a valid JWT
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers(new AntPathRequestMatcher("/authenticate")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/h2-console/**")).permitAll()
                 .anyRequest().authenticated());
 
         // Stateless — no HTTP session
@@ -40,6 +41,9 @@ public class SpringSecurityConfiguration {
 
         // Disable CSRF — not needed for stateless REST
         http.csrf().disable();
+
+        // Allow H2 console to render in frames
+        http.headers().frameOptions().disable();
 
         // Enable CORS
         http.cors();
